@@ -9,7 +9,8 @@ public class View {
     public static final String LESS_NUMBER_STRING = "Number less. Try again";
     public static final String MORE_NUMBER_STRING = "Number is more. Try again";
     public static final String WIN_GAME_MESSAGE = "Congratulate! You won!";
-    public static final String GAME_OVER_MESSAGE = "WASTED";
+    public static final String GAME_OVER_MESSAGE = "WASTED \n" +
+            "You lost!";
 
     public static final String CHOOSE_LEVEL_OF_DIFFICULTY_MESSAGE =
             "Choose difficult. \n" +

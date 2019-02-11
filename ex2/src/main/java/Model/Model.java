@@ -42,7 +42,7 @@ public class Model {
 
     }
 
-    public boolean checkAnswer(int input) {
+    public void checkAnswer(int input) {
 
         if ( input > guessNumber ) {
             rangeMax = input;
@@ -52,16 +52,13 @@ public class Model {
             rangeMin = input;
             numberOfAttempts--;
         }
-        return false;
+
 
 
     }
 
     public boolean isAnswer(int inp) {
-        if ( inp == guessNumber ) {
-            return true;
-        }
-        return false;
+        return inp == guessNumber;
     }
 
     public int getRangeMin() {

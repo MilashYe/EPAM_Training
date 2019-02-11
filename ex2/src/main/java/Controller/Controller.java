@@ -20,7 +20,7 @@ public class Controller {
         Scanner scn = new Scanner(System.in);
         String choosedDifficult;
         String userAnswer ;
-        int intAnswer = model.getRangeMin();
+        int intAnswer ;
 
         model.rand(0, 25);
 
@@ -50,6 +50,13 @@ public class Controller {
             }
             intAnswer = Integer.parseInt(userAnswer);
 
+            model.checkAnswer(intAnswer);
+
+            if ( model.getNumberOfAttempts() == 0 ) {
+                view.printMessage(View.GAME_OVER_MESSAGE);
+                break;
+            }
+
             if ( intAnswer > model.getGuessNumber() ) {
                 view.printMessage(View.LESS_NUMBER_STRING);
             }else{
@@ -66,12 +73,11 @@ public class Controller {
                         model.getDifficultString());
                 break;
             }
-            if ( model.getNumberOfAttempts() == 1 ) {
-                view.printMessage(View.GAME_OVER_MESSAGE);
-                break;
-            }
 
-        } while ( model.getNumberOfAttempts()!=0 | !model.checkAnswer(intAnswer) );
+        } while ( true );
+
+
+
 
     }
 
@@ -81,16 +87,10 @@ public class Controller {
     }
 
     private boolean validateDiffficult(String inp) {
-        if ( inp.equals("1") ||
+        return inp.equals("1") ||
                 inp.equals("2") ||
                 inp.equals("light") ||
-                inp.equals("hard") ) {
-
-            return true;
-        } else {
-
-            return false;
-        }
+                inp.equals("hard");
     }
 
     private boolean validateInt(String inp) {
