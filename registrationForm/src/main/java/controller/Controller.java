@@ -24,7 +24,7 @@ public class Controller {
     public void addRecord() {
         view.printMessage(TextConstants.START_MESSAGE);
 
-/*        record.add(readInput(TextConstants.INPUT_FIRST_NAME, Regex.NAME_REGEX));
+        record.add(readInput(TextConstants.INPUT_FIRST_NAME, Regex.NAME_REGEX));
         record.add(readInput(TextConstants.INPUT_LAST_NAME, Regex.NAME_REGEX));
         record.add(readInput(TextConstants.INPUT_NICKNAME, Regex.NICKNAME_REGEX));
         record.add(readInput(TextConstants.INPUT_COMMENT, Regex.COMMENT_REGEX));
@@ -37,7 +37,7 @@ public class Controller {
         record.add(readInput(TextConstants.INPUT_ADDRESS_CITY, Regex.ADDRESS_CITY_REGEX));
         record.add(readInput(TextConstants.INPUT_ADDRESS_STREET, Regex.ADDRESS_STREET_REGEX));
         record.add(readInput(TextConstants.INPUT_ADDRESS_HOUSE_NUMBER, Regex.HOUSE_NUMBER_REGEX));
-        record.add(readInput(TextConstants.INPUT_ADDRESS_APARTMENT_NUMBER, Regex.APARTMENT_NUMBER_REGEX));*/
+        record.add(readInput(TextConstants.INPUT_ADDRESS_APARTMENT_NUMBER, Regex.APARTMENT_NUMBER_REGEX));
         record.add(readInput(TextConstants.INPUT_DATE, Regex.DATE_REGEX));
 
 
