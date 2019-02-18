@@ -1,6 +1,7 @@
 package controller;
 
 import model.Notebook;
+import model.Record;
 import view.TextConstants;
 import view.View;
 
@@ -9,12 +10,14 @@ import java.util.Scanner;
 
 public class Controller {
 
+    private final int COUNT_OF_LINES = 15;
     private Notebook notebook;
     private View view;
 
     private ArrayList<String> record = new ArrayList<String>();
 
     private Scanner scn = new Scanner(System.in);
+
 
     public Controller(Notebook notebook, View view) {
         this.notebook = notebook;
@@ -39,7 +42,7 @@ public class Controller {
         record.add(readInput(TextConstants.INPUT_ADDRESS_HOUSE_NUMBER, Regex.HOUSE_NUMBER_REGEX));
         record.add(readInput(TextConstants.INPUT_ADDRESS_APARTMENT_NUMBER, Regex.APARTMENT_NUMBER_REGEX));
         record.add(readInput(TextConstants.INPUT_DATE, Regex.DATE_REGEX));
-
+        notebook = new Notebook(new Record(record));
 
 
     }
@@ -57,5 +60,9 @@ public class Controller {
 
     public boolean validate(String regex, String validationInput) {
         return validationInput.matches(regex);
+    }
+
+    public boolean checkForIntegrity(ArrayList<String> arrayList) {
+        return arrayList.size() == COUNT_OF_LINES;
     }
 }
