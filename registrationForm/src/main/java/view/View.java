@@ -13,9 +13,5 @@ public class View {
 
     }
 
-    public void printAllRecord(List list) {
-        for ( Object o : list ) {
-            System.out.println(o.toString());
-        }
-    }
+
 }

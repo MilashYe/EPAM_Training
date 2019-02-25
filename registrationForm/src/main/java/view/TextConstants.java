@@ -17,6 +17,7 @@ public interface TextConstants {
     String INPUT_ADDRESS_HOUSE_NUMBER = "Input house number";
     String INPUT_ADDRESS_APARTMENT_NUMBER = "Input your apartment number";
     String INPUT_DATE = "Input date ";
+    String INPUT_OR_OUTPUT_MESSGE = "Do you want input(1) or view(2) records or end(3)";
 
     String WRONG_INPUT_MESSAGE = "Input is wrong. Try again, please";
 

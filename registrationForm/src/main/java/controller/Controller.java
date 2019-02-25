@@ -1,68 +1,55 @@
 package controller;
 
-import model.Notebook;
-import model.Record;
+import model.Model;
+import model.Registration.Notebook;
+
 import view.TextConstants;
 import view.View;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
 
-    private final int COUNT_OF_LINES = 15;
-    private Notebook notebook;
+
     private View view;
+    private Model model;
 
-    private ArrayList<String> record = new ArrayList<String>();
-
-    private Scanner scn = new Scanner(System.in);
+    private Scanner scn ;
 
 
-    public Controller(Notebook notebook, View view) {
-        this.notebook = notebook;
+    public Controller(Model model, View view) {
+        this.model = model;
         this.view = view;
     }
 
     public void addRecord() {
+        final int COUNT_OF_LINES = 15;
+        scn = new Scanner(System.in);
+
+        RecordReader reader = new RecordReader(view,scn);
+
+        Notebook notebook = Notebook.getInstance();
+
+
         view.printMessage(TextConstants.START_MESSAGE);
+        view.printMessage(TextConstants.INPUT_OR_OUTPUT_MESSGE);
+        int ioend = reader.inputInt(scn.nextLine(), TextConstants.WRONG_INPUT_MESSAGE, "[123]");
+        while ( ioend != 3 ) {
+            if ( ioend == 2 ) {
+                view.printMessage(notebook.toString());
+            }
+            if ( ioend == 1 ) {
 
-        record.add(readInput(TextConstants.INPUT_FIRST_NAME, Regex.NAME_REGEX));
-        record.add(readInput(TextConstants.INPUT_LAST_NAME, Regex.NAME_REGEX));
-        record.add(readInput(TextConstants.INPUT_NICKNAME, Regex.NICKNAME_REGEX));
-        record.add(readInput(TextConstants.INPUT_COMMENT, Regex.COMMENT_REGEX));
-        record.add(readInput(TextConstants.INPUT_HOME_PHONE, Regex.HOME_PHONE_REGEX));
-        record.add(readInput(TextConstants.INPUT_MOBILE_PHONE, Regex.MOBILE_PHONE_REGEX));
-        record.add(readInput(TextConstants.INPUT_SECOND_MOBILE_PHONE, Regex.MOBILE_PHONE_REGEX));
-        record.add(readInput(TextConstants.INPUT_EMAIL, Regex.EMAIL_REGEX));
-        record.add(readInput(TextConstants.INPUT_SKYPE, Regex.SKYPE_REGEX));
-        record.add(readInput(TextConstants.INPUT_ADDRESS_INDEX, Regex.ADDRESS_INDEX_REGEX));
-        record.add(readInput(TextConstants.INPUT_ADDRESS_CITY, Regex.ADDRESS_CITY_REGEX));
-        record.add(readInput(TextConstants.INPUT_ADDRESS_STREET, Regex.ADDRESS_STREET_REGEX));
-        record.add(readInput(TextConstants.INPUT_ADDRESS_HOUSE_NUMBER, Regex.HOUSE_NUMBER_REGEX));
-        record.add(readInput(TextConstants.INPUT_ADDRESS_APARTMENT_NUMBER, Regex.APARTMENT_NUMBER_REGEX));
-        record.add(readInput(TextConstants.INPUT_DATE, Regex.DATE_REGEX));
-        notebook = new Notebook(new Record(record));
-
-
-    }
-
-    public String readInput(String text, String regex) {
-        view.printMessage(text);
-        String input = scn.nextLine();
-        while ( !(validate(regex, input)) ) {
-            view.printMessage(TextConstants.WRONG_INPUT_MESSAGE);
-            view.printMessage(text);
-            input = scn.nextLine();
+                notebook.addRecord(reader.inputRecord(COUNT_OF_LINES));
+            }
+            view.printMessage(TextConstants.INPUT_OR_OUTPUT_MESSGE);
+            ioend = reader.inputInt(scn.nextLine(), TextConstants.WRONG_INPUT_MESSAGE, "[123]");
         }
-        return input;
+
+
+
+
     }
 
-    public boolean validate(String regex, String validationInput) {
-        return validationInput.matches(regex);
-    }
 
-    public boolean checkForIntegrity(ArrayList<String> arrayList) {
-        return arrayList.size() == COUNT_OF_LINES;
-    }
 }

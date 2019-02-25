@@ -1,6 +1,7 @@
-package model;
+package model.Registration;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Record {
     private String name;
@@ -23,6 +24,14 @@ public class Record {
         surName = record[i++];
         nickName = record[i++];
         comment = record[i++];
+        homePhone = record[i++];
+        mobilePhone1 = record[i++];
+        mobilePhone2 = record[i++];
+        email = record[i++];
+        skype = record[i++];
+        address = generateFullAddress(record[i++], record[i++],
+                record[i++], record[i++], record[i++]);
+        writeDate(record[i++]);
 
 
     }
@@ -40,14 +49,14 @@ public class Record {
         skype = arrayList.get(i++);
         address = generateFullAddress(arrayList.get(i++), arrayList.get(i++),
                 arrayList.get(i++), arrayList.get(i++), arrayList.get(i++));
-        writeDate(arrayList.get(i++));
+        writeDate(new Date().toString());
 
     }
 
     public String generateFullAddress(String index, String city,
           String street, String house, String appartment) {
-        return index + " " + city + " " + street + " " + house + " " +
-                appartment;
+        return index + " " + city + " " + street + " h: " + house +
+                " ap: " + appartment;
     }
 
     public void writeDate(String date) {
@@ -62,8 +71,9 @@ public class Record {
     @Override
     public String toString() {
         return "PhoneRecord{" + name + " " + surName + " " +
-                nickName + " " + homePhone + " " + mobilePhone1 + " " +
-                mobilePhone2 + " " + email + " " + skype +"}\n" +
+                " nickname: " + nickName + " home phone: " + homePhone +
+                " mobile1: " + mobilePhone1 +
+                " mobile2: " + mobilePhone2 + " " + email + " " + skype +"}\n" +
                 "Address{ "+address+" }";
     }
 
