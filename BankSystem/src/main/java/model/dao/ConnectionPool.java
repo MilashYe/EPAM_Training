@@ -1,0 +1,29 @@
+package model.dao;
+
+import org.apache.commons.dbcp.BasicDataSource;
+
+import javax.sql.DataSource;
+
+public class ConnectionPool {
+	private static volatile DataSource dataSource;
+
+	public static DataSource getDataSource() {
+		if ( dataSource == null ) {
+			synchronized (DataSource.class) {
+				if ( dataSource == null ) {
+					BasicDataSource bs = new BasicDataSource();
+					bs.setUrl("jdbc:mysql://localhost:3306/bankdb");
+					bs.setUsername("root");
+					bs.setPassword("admin");
+					bs.setMinIdle(5);
+					bs.setMaxIdle(10);
+					bs.setMaxOpenPreparedStatements(100);
+					dataSource = bs;
+				}
+			}
+		}
+		return dataSource;
+	}
+
+
+}
