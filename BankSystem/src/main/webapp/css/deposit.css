@@ -8,7 +8,10 @@ section {
     height: 100vh;
 }
 
+
+
 .pricing .card {
+
     height: 70%;
     border: none;
     border-radius: 1rem;
@@ -69,6 +72,19 @@ section {
     transition: all 0.2s;
     position: absolute;
     bottom: 4%;
+}
+.btn.btn-ex{
+    border-radius: 5rem;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 80%;
+    position: fixed;
+    bottom: 4%;
+
+    border-color: white;
+
+
+
 }
 
 /* Hover Effects on Card */
