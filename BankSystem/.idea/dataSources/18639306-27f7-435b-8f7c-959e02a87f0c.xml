@@ -1162,17 +1162,35 @@ login</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="284" parent="244" name="id_u_UNIQUE">
+    <column id="284" parent="244" name="name">
+      <Position>4</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="244" name="surname">
+      <Position>5</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="244" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(13)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="287" parent="244" name="id_u_UNIQUE">
       <ColNames>login</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="285" parent="244" name="PRIMARY">
+    <key id="288" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>login</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="286" parent="244" name="id_u_UNIQUE">
+    <key id="289" parent="244" name="id_u_UNIQUE">
       <ColNames>login</ColNames>
       <UnderlyingIndexName>id_u_UNIQUE</UnderlyingIndexName>
     </key>

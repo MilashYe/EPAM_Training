@@ -12,7 +12,7 @@ public class ConnectionPool {
 			synchronized (DataSource.class) {
 				if ( dataSource == null ) {
 					BasicDataSource bs = new BasicDataSource();
-					bs.setUrl("jdbc:mysql://localhost:3306/bankdb");
+					bs.setUrl("jdbc:mysql://localhost:3306/bankdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 					bs.setUsername("root");
 					bs.setPassword("admin");
 					bs.setMinIdle(5);

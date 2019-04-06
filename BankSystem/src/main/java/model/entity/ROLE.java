@@ -1,7 +1,6 @@
 package model.entity;
 
 public enum ROLE {
-	GUEST("guest"),
 	USER("user"),
 	ADMIN("admin");
 
@@ -11,7 +10,10 @@ public enum ROLE {
 		role = s;
 	}
 
+
 	public String getRole() {
 		return role;
 	}
+
+
 }

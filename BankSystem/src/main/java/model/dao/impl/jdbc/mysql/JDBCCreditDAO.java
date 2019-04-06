@@ -25,6 +25,11 @@ public class JDBCCreditDAO implements CreditDAO {
 	}
 
 	@Override
+	public Credit readByString(String str) {
+		return null;
+	}
+
+	@Override
 	public List<Credit> readAll() {
 		return null;
 	}

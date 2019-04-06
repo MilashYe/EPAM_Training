@@ -23,6 +23,11 @@ public class JDBCDepositDAO implements DepositDAO {
 	}
 
 	@Override
+	public Deposit readByString(String str) {
+		return null;
+	}
+
+	@Override
 	public List<Deposit> readAll() {
 		return null;
 	}

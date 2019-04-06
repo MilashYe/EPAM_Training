@@ -6,6 +6,11 @@ import java.util.Set;
 public class User {
 	private String login;
 	private ROLE role;
+	private String pwdHash;
+	private String name;
+	private String surname;
+	private String phone;
+
 	private Set<Account> accounts;
 
 	public String getLogin() {
@@ -32,6 +37,38 @@ public class User {
 		this.accounts = accounts;
 	}
 
+	public String getPwdHash() {
+		return pwdHash;
+	}
+
+	public void setPwdHash(String pwdHash) {
+		this.pwdHash = pwdHash;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if ( this == o ) return true;
@@ -47,4 +84,16 @@ public class User {
 		return Objects.hash(login, role, accounts);
 	}
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"login='" + login + '\'' +
+				", role=" + role +
+				", pwdHash='" + pwdHash + '\'' +
+				", name='" + name + '\'' +
+				", surname='" + surname + '\'' +
+				", phone='" + phone + '\'' +
+				", accounts=" + accounts +
+				'}';
+	}
 }

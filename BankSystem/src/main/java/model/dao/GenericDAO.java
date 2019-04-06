@@ -8,6 +8,8 @@ public interface GenericDAO<T> {
 
 	T readById(long id);
 
+	T readByString(String str);
+
 	List<T> readAll();
 
 	void update(T entity);

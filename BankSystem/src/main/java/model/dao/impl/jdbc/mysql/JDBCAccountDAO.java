@@ -24,6 +24,11 @@ public class JDBCAccountDAO implements AccountDAO {
 	}
 
 	@Override
+	public AccountDAO readByString(String str) {
+		return null;
+	}
+
+	@Override
 	public List<AccountDAO> readAll() {
 		return null;
 	}
